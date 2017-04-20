@@ -6,6 +6,7 @@ socket.on('connect', () => console.log('socket.io connected'));
 socket.on('disconnect', () => console.log('socket.io disconnected'))
 socket.on('info', (data) => console.log('info: ' + data))
 socket.on('state', (data) => console.log('state: ' + data))
+socket.on('usercount', (data) => console.log('usercount: ' + data))
 
 export const addListener = (eventName, cb) => socket.on(eventName, cb)
 
