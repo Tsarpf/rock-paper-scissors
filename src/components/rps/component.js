@@ -1,7 +1,7 @@
 import React from 'baret'
 import Bacon from 'baconjs'
 import {addListener, newEmitter} from '../../util/socket.js'
-
+import Chat from '../chat/component.js'
 
 const move = newEmitter('move')
 
@@ -11,7 +11,7 @@ const moveStream = moveBus
   .map(m => move(m))
 
 const stateMap = {
-  'new game': 'New game started! Choose your weapon',
+  'new game': 'New game started! Choose your weapon!',
   'waiting': 'Waiting for an opponent...',
   'opponent disconnect': 'Opponent disconnected, waiting for new opponent'
 }
@@ -48,6 +48,8 @@ const RPS = () =>
     <button onClick={() => moveBus.push(0)}> Rock </button>
     <button onClick={() => moveBus.push(1)}> Paper </button>
     <button onClick={() => moveBus.push(2)}> Scissors </button>
+
+  <Chat> </Chat>
   </div>
 
 export default RPS
