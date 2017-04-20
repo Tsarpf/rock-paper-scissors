@@ -11,9 +11,16 @@ const moveStream = moveBus
   .map(m => move(m))
 
 const stateMap = {
-  'new game': 'Game started',
-  'waiting': 'Waiting for an opponent...'
+  'new game': 'New game started! Choose your weapon',
+  'waiting': 'Waiting for an opponent...',
+  'opponent disconnect': 'Opponent disconnected, waiting for new opponent'
 }
+
+const scoreStream = Bacon
+  .fromBinder(sink => addListener('score', sink))
+
+const yourScore = scoreStream.map(e => e[0])
+const opponentScore = scoreStream.map(e => e[1])
 
 const stateStream = Bacon
   .fromBinder(sink => addListener('state', sink))
@@ -28,11 +35,16 @@ const gameStream = Bacon.fromBinder(sink => addListener('game', sink))
 const RPS = () =>
   <div>
     <div>
+      Score:
+      <p> You: {yourScore}</p>
+      <p> Opponent: {opponentScore}</p>
+    </div>
+    <p>
       {combineStateStream}
-    </div>
-    <div>
+    </p>
+    <p>
       {gameStream}
-    </div>
+    </p>
     <button onClick={() => moveBus.push(0)}> Rock </button>
     <button onClick={() => moveBus.push(1)}> Paper </button>
     <button onClick={() => moveBus.push(2)}> Scissors </button>
