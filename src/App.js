@@ -2,6 +2,8 @@ import React from 'baret'
 import logo from './logo.svg'
 import styles from './App.css'
 
+import RPS from './components/rps/rps.js'
+
 const App = () =>
   <div className={styles.App}>
     <div className={styles.header}>
@@ -11,6 +13,8 @@ const App = () =>
     <p className={styles.intro}>
       test
     </p>
+
+    <RPS></RPS>
   </div>
 
 
