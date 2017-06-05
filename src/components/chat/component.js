@@ -2,6 +2,8 @@ import React from 'baret'
 import Bacon from 'baconjs'
 import {addListener, newEmitter} from '../../util/socket.js'
 
+import spectre from '../../../node_modules/spectre.css/docs/dist/spectre.css'
+
 const stateStream = Bacon
       .fromBinder(sink => addListener('state', sink))
 
@@ -42,7 +44,7 @@ const Chat = () => {
   return (
       <div>
       <input type="text" value={textStream} onChange={e => textBus.push(e.target.value)}/>
-      <button onClick={() => clickBus.push()}> send </button>
+      <button className={spectre.btn + ' ' + spectre['btn-primary']}  onClick={() => clickBus.push()}> send </button>
         <ul>
           {list}
         </ul>

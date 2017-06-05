@@ -3,6 +3,8 @@ import Bacon from 'baconjs'
 import {addListener, newEmitter} from '../../util/socket.js'
 import Chat from '../chat/component.js'
 
+import spectre from '../../../node_modules/spectre.css/docs/dist/spectre.css'
+
 const move = newEmitter('move')
 
 const moveBus = new Bacon.Bus()
@@ -45,9 +47,9 @@ const RPS = () =>
     <p>
       {gameStream}
     </p>
-    <button onClick={() => moveBus.push(0)}> Rock </button>
-    <button onClick={() => moveBus.push(1)}> Paper </button>
-    <button onClick={() => moveBus.push(2)}> Scissors </button>
+    <button className={spectre.btn} onClick={() => moveBus.push(0)}> Rock </button>
+    <button className={spectre.btn} onClick={() => moveBus.push(1)}> Paper </button>
+    <button className={spectre .btn} onClick={() => moveBus.push(2)}> Scissors </button>
 
   <Chat> </Chat>
   </div>
