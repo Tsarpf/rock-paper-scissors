@@ -17,7 +17,7 @@ class App extends React.Component {
   render = () =>
   <div className={styles.App}>
     <div className={styles.header}>
-      <h2>Rock to da Paper to da Scissors</h2>
+      <h2>Rock / Paper / Scissors</h2>
     </div>
     <h4> {userStream} user(s) connected </h4>
     <p className={styles.intro}>
