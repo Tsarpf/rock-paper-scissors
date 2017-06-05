@@ -18,8 +18,8 @@ class App extends React.Component {
   <div className={styles.App}>
     <div className={styles.header}>
       <h2>Rock to da Paper to da Scissors</h2>
-      <h4> {userStream} users connected </h4>
     </div>
+    <h4> {userStream} user(s) connected </h4>
     <p className={styles.intro}>
     </p>
 
