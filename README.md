@@ -1,2 +1,2 @@
 Live here:
-http://tsurba.prototyping.xyz/rps/
+http://labs.prototyping.xyz/projects/rps
