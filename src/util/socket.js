@@ -8,6 +8,9 @@ socket.on('info', (data) => console.log('info: ' + data))
 socket.on('state', (data) => console.log('state: ' + data))
 socket.on('usercount', (data) => console.log('usercount: ' + data))
 
-export const addListener = (eventName, cb) => socket.on(eventName, cb)
+export const addListener = (eventName, cb) => {
+  socket.on(eventName, cb)
+  return null
+}
 
 export const newEmitter = eventName => msg => socket.emit(eventName, msg) && console.log('emitted ' + msg)
