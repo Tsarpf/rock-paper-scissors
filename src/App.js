@@ -3,11 +3,18 @@ import styles from './App.css'
 import Bacon from 'baconjs'
 
 import RPS from './components/rps/component.js'
-import {addListener} from './util/socket.js'
+import {addListener, disconnect, connect} from './util/socket.js'
 
 const userStream = Bacon.fromBinder(sink => addListener('usercount', sink))
 
-const App = () =>
+class App extends React.Component {
+  componentWillUnmount() {
+    disconnect()
+  }
+  componentWillMount() {
+    connect()
+  }
+  render = () =>
   <div className={styles.App}>
     <div className={styles.header}>
       <h2>Rock to da Paper to da Scissors</h2>
@@ -18,6 +25,7 @@ const App = () =>
 
     <RPS></RPS>
   </div>
+}
 
 
 export default App
